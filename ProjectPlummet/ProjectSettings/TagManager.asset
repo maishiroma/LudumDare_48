@@ -7,6 +7,7 @@ TagManager:
   - Breakable
   - Invincible
   - Wall
+  - UI_Return
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@
     using UnityEngine;
     using UnityEngine.InputSystem;
     using Global;
+    using Obstacle;
 
     public class PlayerController : MonoBehaviour
     {
@@ -102,6 +103,7 @@
             {
                 if(isFastFalling)
                 {
+                    GameManager.Instance.Score = collision.gameObject.GetComponent<PointSystem>().GetPointAmount;
                     Destroy(collision.gameObject);
                 }
             }

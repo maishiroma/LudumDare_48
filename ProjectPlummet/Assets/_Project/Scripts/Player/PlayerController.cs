@@ -106,6 +106,16 @@
                     GameManager.Instance.Score = collision.gameObject.GetComponent<PointSystem>().GetPointAmount;
                     Destroy(collision.gameObject);
                 }
+                else
+                {
+                    // game over
+                    print("You died!");
+                }
+            }
+           else if(collision.collider.CompareTag("Invincible"))
+            {
+                // game over
+                print("You died!");
             }
         }
     }

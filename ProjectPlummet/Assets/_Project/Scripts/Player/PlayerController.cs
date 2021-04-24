@@ -9,12 +9,18 @@
     public class PlayerController : MonoBehaviour
     {
         public float horizontalSpeed;
-        public float maxHorizontalSpeed;
+        public float horizontalAcceleration;
+        public float stopAcceleration;
 
-        private Rigidbody2D playerRB;
-        private float movementInput;
+        public float maxYAcceleration;
+        public float fastFallGravity;
 
         private InputActions controls;
+        private Rigidbody2D playerRB;
+       
+        private float movementInput;
+        private bool isFastFalling;
+        private float initialGravity;
 
         // Activates all of the controls for the player
         private void Awake()
@@ -25,6 +31,8 @@
             // Then we can set up calllbacks to specific methods that we want the controls to listen to
             controls.Player.Movement.performed += ctx => GrabMovement(ctx);
             controls.Player.Movement.canceled += ctx => GrabMovement(ctx);
+
+            controls.Player.FastFall.performed += ctx => GrabPlunge(ctx);
         }
 
         // Enables the controls when the player is active
@@ -43,29 +51,49 @@
         private void Start()
         {
             movementInput = 0f;
+            isFastFalling = false;
 
             playerRB = GetComponent<Rigidbody2D>();
+
+            initialGravity = playerRB.gravityScale;
         }
 
         private void FixedUpdate()
         {
             if (movementInput != 0f)
             {
-                float newXMovement = Mathf.Clamp(playerRB.velocity.x + (movementInput * horizontalSpeed), 0f, maxHorizontalSpeed);
+                float newXMovement = movementInput * horizontalSpeed;
+                float clampY = Mathf.Clamp(playerRB.velocity.y, 0f, maxYAcceleration);
 
-                Vector2 newVelocity = new Vector2(newXMovement, playerRB.velocity.y);
-                playerRB.velocity = Vector2.Lerp(playerRB.velocity, newVelocity, 0.5f * Time.deltaTime);
+                Vector2 newVelocity = new Vector2(newXMovement, clampY);
+                playerRB.velocity = Vector2.Lerp(playerRB.velocity, newVelocity, horizontalAcceleration * Time.deltaTime);
             }
             else
             {
-                Vector2 neutral = new Vector2(0f, playerRB.velocity.y);
-                playerRB.velocity = Vector2.Lerp(playerRB.velocity, neutral, 0.5f * Time.deltaTime);
+                float clampY = Mathf.Clamp(playerRB.velocity.y, 0f, maxYAcceleration);
+
+                Vector2 newVelocity = new Vector2(0f, clampY);
+                playerRB.velocity = Vector2.Lerp(playerRB.velocity, newVelocity, stopAcceleration * Time.deltaTime);
             }
         }
 
         private void GrabMovement(InputAction.CallbackContext ctx)
         {
             movementInput = ctx.ReadValue<float>();
+        }
+    
+        private void GrabPlunge(InputAction.CallbackContext ctx)
+        {
+            isFastFalling = !isFastFalling;
+
+            if(isFastFalling)
+            {
+                playerRB.gravityScale = fastFallGravity;
+            }
+            else
+            {
+                playerRB.gravityScale = initialGravity;
+            }
         }
     }
 

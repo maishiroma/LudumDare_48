@@ -423,6 +423,7 @@ MonoBehaviour:
   - {fileID: 2681094410980083449, guid: 2a2a4e0e2b8568f4ab6e5252139963d3, type: 3}
   spawnArea: {fileID: 554544490}
   xRange: 10
+  maxSequential: 3
   minSpawnRate: 1
   maxSpawnRate: 3
 --- !u!114 &638000942

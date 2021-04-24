@@ -11,6 +11,8 @@
         public Transform spawnArea;
         public float xRange;
 
+        public float maxSequential;
+
         public float minSpawnRate;
         public float maxSpawnRate;
 
@@ -28,8 +30,38 @@
             {
                 float randomXSpot = Random.Range(spawnArea.position.x - xRange, spawnArea.position.x + xRange);
                 int randomIndex = Random.Range(0, prefabArray.Length);
+                float randomSequentialAmount = Random.Range(0, maxSequential);
 
-                Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, spawnArea.position.y, 0f), Quaternion.identity);
+                // Sequential Spawn Up or Sides?
+                int ranXOrYSeq = Random.Range(0, 2);
+
+                if(ranXOrYSeq == 0)
+                {
+                    // Spawn left or right?
+                    int ranLeftOrRight = Random.Range(0, 2);
+                    int multiplier = -1;
+                    if(ranLeftOrRight == 0)
+                    {
+                        multiplier = 1;
+                    }
+
+                    // Iterates on the spawning
+                    for (int iterator = 0; iterator <= randomSequentialAmount; iterator++)
+                    {
+                        Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, spawnArea.position.y, 0f), Quaternion.identity);
+                        randomXSpot += prefabArray[randomIndex].GetComponentInChildren<SpriteRenderer>().bounds.size.x * multiplier;
+                    }
+                }
+                else
+                {
+                    // Iterates on the spawning
+                    float currYPos = spawnArea.position.y;
+                    for (int iterator = 0; iterator <= randomSequentialAmount; iterator++)
+                    {
+                        Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, currYPos, 0f), Quaternion.identity);
+                        currYPos += prefabArray[randomIndex].GetComponentInChildren<SpriteRenderer>().bounds.size.y;
+                    }
+                }
 
                 currTime = 0f;
                 nextSpawnTime = Random.Range(minSpawnRate, maxSpawnRate);

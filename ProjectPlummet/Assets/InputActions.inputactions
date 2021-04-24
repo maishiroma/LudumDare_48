@@ -107,7 +107,7 @@
             "id": "964b09ea-c013-4b09-9a67-25f58a0b8c34",
             "actions": [
                 {
-                    "name": "Menu",
+                    "name": "Navigate",
                     "type": "Button",
                     "id": "5fb336c1-8b20-4bcf-a2a5-ff0bbee5db4d",
                     "expectedControlType": "Button",
@@ -131,7 +131,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menu",
+                    "action": "Navigate",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -142,7 +142,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Menu",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -153,7 +153,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Menu",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -164,7 +164,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menu",
+                    "action": "Navigate",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -175,7 +175,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Menu",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -186,7 +186,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Menu",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },

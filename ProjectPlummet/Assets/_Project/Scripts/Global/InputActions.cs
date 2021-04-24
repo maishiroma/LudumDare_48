@@ -122,7 +122,7 @@ namespace Global
             ""id"": ""964b09ea-c013-4b09-9a67-25f58a0b8c34"",
             ""actions"": [
                 {
-                    ""name"": ""Menu"",
+                    ""name"": ""Navigate"",
                     ""type"": ""Button"",
                     ""id"": ""5fb336c1-8b20-4bcf-a2a5-ff0bbee5db4d"",
                     ""expectedControlType"": ""Button"",
@@ -146,7 +146,7 @@ namespace Global
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Menu"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -157,7 +157,7 @@ namespace Global
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Menu"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -168,7 +168,7 @@ namespace Global
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Menu"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -179,7 +179,7 @@ namespace Global
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Menu"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -190,7 +190,7 @@ namespace Global
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Menu"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -201,7 +201,7 @@ namespace Global
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Menu"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -239,7 +239,7 @@ namespace Global
             m_Player_FastFall = m_Player.FindAction("FastFall", throwIfNotFound: true);
             // Menu
             m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-            m_Menu_Menu = m_Menu.FindAction("Menu", throwIfNotFound: true);
+            m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
             m_Menu_Select = m_Menu.FindAction("Select", throwIfNotFound: true);
         }
 
@@ -331,13 +331,13 @@ namespace Global
         // Menu
         private readonly InputActionMap m_Menu;
         private IMenuActions m_MenuActionsCallbackInterface;
-        private readonly InputAction m_Menu_Menu;
+        private readonly InputAction m_Menu_Navigate;
         private readonly InputAction m_Menu_Select;
         public struct MenuActions
         {
             private @InputActions m_Wrapper;
             public MenuActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Menu => m_Wrapper.m_Menu_Menu;
+            public InputAction @Navigate => m_Wrapper.m_Menu_Navigate;
             public InputAction @Select => m_Wrapper.m_Menu_Select;
             public InputActionMap Get() { return m_Wrapper.m_Menu; }
             public void Enable() { Get().Enable(); }
@@ -348,9 +348,9 @@ namespace Global
             {
                 if (m_Wrapper.m_MenuActionsCallbackInterface != null)
                 {
-                    @Menu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
-                    @Menu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
-                    @Menu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
+                    @Navigate.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
+                    @Navigate.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
+                    @Navigate.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
                     @Select.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
                     @Select.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
                     @Select.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
@@ -358,9 +358,9 @@ namespace Global
                 m_Wrapper.m_MenuActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Menu.started += instance.OnMenu;
-                    @Menu.performed += instance.OnMenu;
-                    @Menu.canceled += instance.OnMenu;
+                    @Navigate.started += instance.OnNavigate;
+                    @Navigate.performed += instance.OnNavigate;
+                    @Navigate.canceled += instance.OnNavigate;
                     @Select.started += instance.OnSelect;
                     @Select.performed += instance.OnSelect;
                     @Select.canceled += instance.OnSelect;
@@ -384,7 +384,7 @@ namespace Global
         }
         public interface IMenuActions
         {
-            void OnMenu(InputAction.CallbackContext context);
+            void OnNavigate(InputAction.CallbackContext context);
             void OnSelect(InputAction.CallbackContext context);
         }
     }

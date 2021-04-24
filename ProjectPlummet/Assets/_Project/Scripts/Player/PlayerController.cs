@@ -57,6 +57,11 @@
             playerRB = GetComponent<Rigidbody2D>();
 
             initialGravity = playerRB.gravityScale;
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.ResetScore();
+            }
         }
 
         private void FixedUpdate()
@@ -110,12 +115,14 @@
                 {
                     // game over
                     print("You died!");
+                    GameManager.Instance.ToGameOver();
                 }
             }
            else if(collision.collider.CompareTag("Invincible"))
             {
                 // game over
                 print("You died!");
+                GameManager.Instance.ToGameOver();
             }
         }
     }

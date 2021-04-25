@@ -5,7 +5,6 @@
     using UnityEngine;
     using UnityEngine.InputSystem;
     using Global;
-    using Obstacle;
     using Level;
 
     public class PlayerController : MonoBehaviour
@@ -20,6 +19,9 @@
         public float maxYAcceleration;
         public float fastFallGravity;
 
+        public float diffMaxGravity;
+        public float diffMaxFastFall;
+
         private bool isAlive;
 
         private InputActions controls;
@@ -27,7 +29,11 @@
        
         private float movementInput;
         private bool isFastFalling;
+
+        private float currGravity;
+
         private float initialGravity;
+        private float initialFastFall;
 
         public bool SetAlive
         {
@@ -75,6 +81,7 @@
             playerRB = GetComponent<Rigidbody2D>();
 
             initialGravity = playerRB.gravityScale;
+            currGravity = initialGravity;
 
             if (GameManager.Instance != null)
             {
@@ -135,7 +142,7 @@
                 }
                 else
                 {
-                    playerRB.gravityScale = initialGravity;
+                    playerRB.gravityScale = currGravity;
                 }
 
             }
@@ -165,6 +172,15 @@
             }
         }
     
+        public void IncreaseFallSpeeds()
+        {
+            fastFallGravity = Mathf.Clamp(fastFallGravity + 2f, initialFastFall, diffMaxFastFall);
+            currGravity = Mathf.Clamp(currGravity + 2f, initialGravity, diffMaxGravity);
+
+            playerRB.gravityScale = currGravity;
+            maxYAcceleration = fastFallGravity;
+        }
+
         public void PlayIntroAnimation()
         {
             if(isAlive == false)

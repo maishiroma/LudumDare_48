@@ -1,4 +1,4 @@
-﻿namespace Obstacle
+﻿namespace Level
 {
     using System.Collections;
     using System.Collections.Generic;

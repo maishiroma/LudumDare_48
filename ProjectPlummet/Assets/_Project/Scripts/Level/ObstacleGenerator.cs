@@ -5,11 +5,13 @@
     using UnityEngine;
     using Global;
     using Camera;
+    using Player;
 
     public class ObstacleGenerator : MonoBehaviour
     {
         public GameObject[] prefabArray;
         public YParallaxScrolling[] bgList;
+        public PlayerController player;
 
         public float xRange;
         public float maxSequential;
@@ -104,6 +106,7 @@
                     {
                         currItem.ChangeBG();
                     }
+                    player.IncreaseFallSpeeds();
                 }
 
                 numbTimesDifficultyChanged += 1;

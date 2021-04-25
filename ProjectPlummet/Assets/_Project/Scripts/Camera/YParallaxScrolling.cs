@@ -10,13 +10,19 @@
         public float effectAmount;
         public float offsetTimes;
 
+        public Sprite[] bgList;
+
+        private SpriteRenderer bgSprite;
         private float yLength;
         private float startYPos;
+        private int currIndex;
 
         private void Start()
         {
+            bgSprite = GetComponent<SpriteRenderer>();
+
             startYPos = transform.position.y;
-            yLength = GetComponent<SpriteRenderer>().bounds.size.y;
+            yLength = bgSprite.bounds.size.y;
         }
 
         private void Update()
@@ -33,6 +39,19 @@
             {
                 startYPos -= yLength * offsetTimes;
             }
+        }
+
+        public void ChangeBG()
+        {
+            if(currIndex + 1 > bgList.Length)
+            {
+                currIndex = 0;
+            }
+            else
+            {
+                currIndex += 1;
+            }
+            bgSprite.sprite = bgList[currIndex];
         }
     }
 

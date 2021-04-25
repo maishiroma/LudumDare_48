@@ -246,6 +246,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 0
   offsetTimes: 2
+  bgList:
+  - {fileID: 21300000, guid: a466cb92d62d30b4ab78ef0bfb81192c, type: 3}
+  - {fileID: 21300000, guid: f465d329a7dd86e44aa6eacd989c0345, type: 3}
+  - {fileID: 21300000, guid: 1526ce0498c080a4ba96b7a1b97b17cd, type: 3}
 --- !u!212 &88690623
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -615,6 +619,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 0
   offsetTimes: 2
+  bgList:
+  - {fileID: 21300000, guid: a466cb92d62d30b4ab78ef0bfb81192c, type: 3}
+  - {fileID: 21300000, guid: f465d329a7dd86e44aa6eacd989c0345, type: 3}
+  - {fileID: 21300000, guid: 1526ce0498c080a4ba96b7a1b97b17cd, type: 3}
 --- !u!212 &640869761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -745,6 +753,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 0.5
   offsetTimes: 2
+  bgList:
+  - {fileID: 21300000, guid: ed554e46e2034d945ad56e238f22e2e2, type: 3}
+  - {fileID: 21300000, guid: c9573504e97451a41a77e9359c4523f3, type: 3}
+  - {fileID: 21300000, guid: 8a1253e3156539f43ac2ca25e82788f9, type: 3}
 --- !u!212 &954952118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -854,6 +866,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 1
   offsetTimes: 1
+  bgList:
+  - {fileID: 21300000, guid: 8d11047031e11644e978b1011841f69d, type: 3}
+  - {fileID: 21300000, guid: 63d30a419a92ca14191c4116677ce63a, type: 3}
+  - {fileID: 21300000, guid: eab675460c98fd44d8ca11b0deb1d475, type: 3}
 --- !u!212 &1070491527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -952,6 +968,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 0.5
   offsetTimes: 2
+  bgList:
+  - {fileID: 21300000, guid: ed554e46e2034d945ad56e238f22e2e2, type: 3}
+  - {fileID: 21300000, guid: c9573504e97451a41a77e9359c4523f3, type: 3}
+  - {fileID: 21300000, guid: 8a1253e3156539f43ac2ca25e82788f9, type: 3}
 --- !u!212 &1302630741
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1050,6 +1070,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 1
   offsetTimes: 1
+  bgList:
+  - {fileID: 21300000, guid: 8d11047031e11644e978b1011841f69d, type: 3}
+  - {fileID: 21300000, guid: 63d30a419a92ca14191c4116677ce63a, type: 3}
+  - {fileID: 21300000, guid: eab675460c98fd44d8ca11b0deb1d475, type: 3}
 --- !u!212 &1318613884
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1164,6 +1188,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 0
   offsetTimes: 2
+  bgList:
+  - {fileID: 21300000, guid: a466cb92d62d30b4ab78ef0bfb81192c, type: 3}
+  - {fileID: 21300000, guid: f465d329a7dd86e44aa6eacd989c0345, type: 3}
+  - {fileID: 21300000, guid: 1526ce0498c080a4ba96b7a1b97b17cd, type: 3}
 --- !u!212 &1468120769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1319,6 +1347,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 0.5
   offsetTimes: 2
+  bgList:
+  - {fileID: 21300000, guid: ed554e46e2034d945ad56e238f22e2e2, type: 3}
+  - {fileID: 21300000, guid: c9573504e97451a41a77e9359c4523f3, type: 3}
+  - {fileID: 21300000, guid: 8a1253e3156539f43ac2ca25e82788f9, type: 3}
 --- !u!212 &1566549000
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1542,10 +1574,25 @@ MonoBehaviour:
   prefabArray:
   - {fileID: 3037534980116279377, guid: 36c92c8608206d1408755583a910c700, type: 3}
   - {fileID: 4498379213865089678, guid: 0b82a06d1b7b62349a5dbb52922d8250, type: 3}
-  xRange: 10
+  bgList:
+  - {fileID: 2145450497}
+  - {fileID: 1070491526}
+  - {fileID: 1318613883}
+  - {fileID: 1302630740}
+  - {fileID: 1566548999}
+  - {fileID: 954952117}
+  - {fileID: 1468120768}
+  - {fileID: 640869760}
+  - {fileID: 88690622}
+  xRange: 8
   maxSequential: 3
   minSpawnRate: 1
   maxSpawnRate: 3
+  scoreThreshold: 10
+  modCheck: 3
+  diffMaxSequential: 15
+  diffMinSpawnRate: 0.3
+  diffMaxSpawnRate: 1.5
 --- !u!1 &1893896200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +2057,10 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   effectAmount: 1
   offsetTimes: 1
+  bgList:
+  - {fileID: 21300000, guid: 8d11047031e11644e978b1011841f69d, type: 3}
+  - {fileID: 21300000, guid: 63d30a419a92ca14191c4116677ce63a, type: 3}
+  - {fileID: 21300000, guid: eab675460c98fd44d8ca11b0deb1d475, type: 3}
 --- !u!1001 &7318344048672534841
 PrefabInstance:
   m_ObjectHideFlags: 0

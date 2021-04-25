@@ -3,24 +3,42 @@
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using Global;
+    using Camera;
 
     public class ObstacleGenerator : MonoBehaviour
     {
         public GameObject[] prefabArray;
+        public YParallaxScrolling[] bgList;
 
         public float xRange;
-
         public float maxSequential;
 
         public float minSpawnRate;
         public float maxSpawnRate;
 
+        public int scoreThreshold;
+        public int modCheck;
+
+        public float diffMaxSequential;
+        public float diffMinSpawnRate;
+        public float diffMaxSpawnRate;
+
         private float currTime;
         private float nextSpawnTime;
+        private float startingSequential;
+        private float startingMinSpawnRate;
+        private float startingMaxSpawnRate;
+        private int numbTimesDifficultyChanged;
 
         private void Start()
         {
             nextSpawnTime = Random.Range(minSpawnRate, maxSpawnRate);
+
+            startingSequential = maxSequential;
+            startingMinSpawnRate = minSpawnRate;
+            startingMaxSpawnRate = maxSpawnRate;
+            numbTimesDifficultyChanged = 0;
         }
 
         private void Update()
@@ -68,6 +86,29 @@
             else
             {
                 currTime += Time.deltaTime;
+                IncreaseDifficulty();
+            }
+        }
+    
+        private void IncreaseDifficulty()
+        {
+            if(GameManager.Instance.Score >= scoreThreshold)
+            {
+                maxSequential = Mathf.Clamp(maxSequential + 1, startingSequential, diffMaxSequential);
+                minSpawnRate = Mathf.Clamp(minSpawnRate - 0.2f, diffMinSpawnRate, startingMinSpawnRate);
+                maxSpawnRate = Mathf.Clamp(maxSpawnRate - 0.2f, diffMaxSpawnRate, startingMaxSpawnRate);
+
+                if(numbTimesDifficultyChanged % modCheck == 0 && numbTimesDifficultyChanged != 0)
+                {
+                    foreach (YParallaxScrolling currItem in bgList)
+                    {
+                        currItem.ChangeBG();
+                    }
+                }
+
+                numbTimesDifficultyChanged += 1;
+                scoreThreshold += scoreThreshold;
+                print(numbTimesDifficultyChanged);
             }
         }
     }

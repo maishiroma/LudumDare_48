@@ -10,7 +10,6 @@
     public class PlayerController : MonoBehaviour
     {
         public AudioSource sfx;
-        public AudioClip blockBreak;
         public AudioClip deadSound;
         public AudioClip plummetStart;
         public AudioClip plummetEnd;
@@ -173,23 +172,41 @@
             {
                 if(isFastFalling)
                 {
-                    sfx.PlayOneShot(blockBreak, 1f);
-                    GameManager.Instance.Score = collision.gameObject.GetComponent<PointSystem>().GetPointAmount;
-                    Destroy(collision.gameObject);
+                    StartCoroutine(collision.gameObject.GetComponent<BreakableBlocks>().DestroyBlock(sfx));
                 }
                 else
                 {
-                    sfx.PlayOneShot(deadSound, 1f);
-                    GameManager.Instance.ToGameOver();
+                    StartCoroutine(PlayDeathScene());
                 }
             }
            else if(collision.collider.CompareTag("Invincible"))
             {
-                sfx.PlayOneShot(deadSound, 0.5f);
-                GameManager.Instance.ToGameOver();
+                StartCoroutine(PlayDeathScene());
             }
         }
     
+
+        private IEnumerator PlayDeathScene()
+        {
+            if(isAlive == true)
+            {
+                isAlive = false;
+                playerAnimations.SetBool("isDead", true);
+                yield return new WaitForFixedUpdate();
+
+                movementInput = 0f;
+                playerRB.isKinematic = true;
+                playerRB.velocity = Vector2.zero;
+                yield return new WaitForFixedUpdate();
+
+                sfx.PlayOneShot(deadSound, 1f);
+                yield return new WaitForSeconds(1f);
+
+                GameManager.Instance.ToGameOver();
+            }
+            yield return null;
+        }
+
         public void IncreaseFallSpeeds()
         {
             fastFallGravity = Mathf.Clamp(fastFallGravity + 2f, initialFastFall, diffMaxFastFall);

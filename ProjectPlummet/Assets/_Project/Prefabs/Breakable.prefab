@@ -93,6 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729f9e2b846b19c49ac9159372026283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockAnimations: {fileID: 9099337610759300247}
+  isDestroyed: 0
+  blockBreak: {fileID: 8300000, guid: 9fb3f23a855c9a6448bef0196e19b2df, type: 3}
   pointAmount: 10
 --- !u!1 &3037534980173911614
 GameObject:

@@ -114,6 +114,7 @@
             if(isAlive)
             {
                 isFastFalling = !isFastFalling;
+                playerAnimations.SetBool("isPlunging", isFastFalling);
 
                 if (isFastFalling)
                 {
@@ -123,6 +124,7 @@
                 {
                     playerRB.gravityScale = initialGravity;
                 }
+
             }
         }
 

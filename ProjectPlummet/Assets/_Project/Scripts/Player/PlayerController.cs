@@ -6,6 +6,7 @@
     using UnityEngine.InputSystem;
     using Global;
     using Obstacle;
+    using Level;
 
     public class PlayerController : MonoBehaviour
     {
@@ -19,12 +20,25 @@
         public float maxYAcceleration;
         public float fastFallGravity;
 
+        private bool isAlive;
+
         private InputActions controls;
         private Rigidbody2D playerRB;
        
         private float movementInput;
         private bool isFastFalling;
         private float initialGravity;
+
+        public bool SetAlive
+        {
+            set { 
+                
+                if (isAlive == false && value == true)
+                {
+                    isAlive = value;
+                }
+            }
+        }
 
         // Activates all of the controls for the player
         private void Awake()
@@ -56,6 +70,7 @@
         {
             movementInput = 0f;
             isFastFalling = false;
+            isAlive = false;
 
             playerRB = GetComponent<Rigidbody2D>();
 
@@ -88,20 +103,26 @@
 
         private void GrabMovement(InputAction.CallbackContext ctx)
         {
-            movementInput = ctx.ReadValue<float>();
+            if(isAlive)
+            {
+                movementInput = ctx.ReadValue<float>();
+            }
         }
     
         private void GrabPlunge(InputAction.CallbackContext ctx)
         {
-            isFastFalling = !isFastFalling;
+            if(isAlive)
+            {
+                isFastFalling = !isFastFalling;
 
-            if(isFastFalling)
-            {
-                playerRB.gravityScale = fastFallGravity;
-            }
-            else
-            {
-                playerRB.gravityScale = initialGravity;
+                if (isFastFalling)
+                {
+                    playerRB.gravityScale = fastFallGravity;
+                }
+                else
+                {
+                    playerRB.gravityScale = initialGravity;
+                }
             }
         }
 
@@ -126,6 +147,14 @@
                 // game over
                 print("You died!");
                 GameManager.Instance.ToGameOver();
+            }
+        }
+    
+        public void PlayIntroAnimation()
+        {
+            if(isAlive == false)
+            {
+                playerAnimations.SetBool("isReady", true);
             }
         }
     }

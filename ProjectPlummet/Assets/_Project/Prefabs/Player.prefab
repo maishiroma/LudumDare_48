@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx: {fileID: 0}
-  blockBreak: {fileID: 8300000, guid: 9fb3f23a855c9a6448bef0196e19b2df, type: 3}
   deadSound: {fileID: 8300000, guid: 63fba78729e87d44c918c6e63fce247d, type: 3}
   plummetStart: {fileID: 8300000, guid: 209c525098f94874e8b8c459fb66578b, type: 3}
   plummetEnd: {fileID: 8300000, guid: 290cb20e70232234986762b540ac3697, type: 3}
@@ -225,3 +224,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPlatform: {fileID: 0}
+  sfx: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: bc6febb5b5e391847be0f81211266628, type: 3}

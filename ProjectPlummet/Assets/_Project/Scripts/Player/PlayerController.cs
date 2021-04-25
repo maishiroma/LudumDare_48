@@ -21,6 +21,9 @@
         public float horizontalAcceleration;
         public float stopAcceleration;
 
+        public float timeGravityAdd;
+        public float addToGravity;
+        
         public float maxYAcceleration;
         public float fastFallGravity;
 
@@ -43,6 +46,8 @@
         private float currGravity;
         private Vector2 currHitBoxSize;
         private Vector2 currHitBoxOffset;
+
+        private float currTimeFallling;
 
         public bool SetAlive
         {
@@ -98,6 +103,20 @@
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.ResetScore();
+            }
+        }
+
+        private void Update()
+        {
+            if(isFastFalling == false && isAlive == true)
+            {
+                currTimeFallling += Time.deltaTime;
+
+                if(currTimeFallling > timeGravityAdd)
+                {
+                    playerRB.gravityScale += addToGravity;
+                    currTimeFallling = 0f;
+                }
             }
         }
 
@@ -161,6 +180,7 @@
                     playerRB.gravityScale = currGravity;
                     playerHitBox.offset = currHitBoxOffset;
                     playerHitBox.size = currHitBoxSize;
+                    currTimeFallling = 0f;
                 }
 
             }

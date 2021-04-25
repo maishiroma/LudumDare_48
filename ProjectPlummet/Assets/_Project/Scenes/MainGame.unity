@@ -2345,6 +2345,14 @@ PrefabInstance:
       propertyPath: sfx
       value: 
       objectReference: {fileID: 363241131}
+    - target: {fileID: 7318344047350373394, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
+      propertyPath: timeGravityAdd
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318344047350373394, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
+      propertyPath: addToGravity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7318344047350373395, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
       propertyPath: m_Name
       value: Player

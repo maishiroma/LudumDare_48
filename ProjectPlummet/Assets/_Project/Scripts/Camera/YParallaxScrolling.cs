@@ -8,17 +8,18 @@
     {
         public GameObject mainCamera;
         public float effectAmount;
+        public float offsetTimes;
 
         private float yLength;
         private float startYPos;
 
-        void Start()
+        private void Start()
         {
             startYPos = transform.position.y;
             yLength = GetComponent<SpriteRenderer>().bounds.size.y;
         }
 
-        void FixedUpdate()
+        private void Update()
         {
             float temp = mainCamera.transform.position.y * (1 - effectAmount);
             float disitance = mainCamera.transform.position.y * effectAmount;
@@ -26,11 +27,11 @@
 
             if(temp > startYPos + yLength)
             {
-                startYPos += yLength;
+                startYPos += yLength * offsetTimes;
             }
             else if(temp < startYPos - yLength)
             {
-                startYPos -= yLength;
+                startYPos -= yLength * offsetTimes;
             }
         }
     }

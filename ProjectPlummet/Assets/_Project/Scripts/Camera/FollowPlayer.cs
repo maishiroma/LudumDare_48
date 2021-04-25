@@ -8,12 +8,12 @@
     {
         public Rigidbody2D player;
 
-        public Vector2 offset;
+        public float offset;
 
         private void FixedUpdate()
         {
-            Vector2 newPos = new Vector2(player.position.x + offset.x, player.position.y + offset.y);
-            gameObject.transform.position = new Vector3(newPos.x, newPos.y, gameObject.transform.position.z);
+            float newPos = player.position.y + offset;
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, newPos, gameObject.transform.position.z);
         }
 
     }

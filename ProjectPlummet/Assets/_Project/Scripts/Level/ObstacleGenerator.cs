@@ -8,7 +8,6 @@
     {
         public GameObject[] prefabArray;
 
-        public Transform spawnArea;
         public float xRange;
 
         public float maxSequential;
@@ -28,7 +27,7 @@
         {
             if(currTime >= nextSpawnTime)
             {
-                float randomXSpot = Random.Range(spawnArea.position.x - xRange, spawnArea.position.x + xRange);
+                float randomXSpot = Random.Range(gameObject.transform.position.x - xRange, gameObject.transform.position.x + xRange);
                 int randomIndex = Random.Range(0, prefabArray.Length);
                 float randomSequentialAmount = Random.Range(0, maxSequential);
 
@@ -48,14 +47,14 @@
                     // Iterates on the spawning
                     for (int iterator = 0; iterator <= randomSequentialAmount; iterator++)
                     {
-                        Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, spawnArea.position.y, 0f), Quaternion.identity);
+                        Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, gameObject.transform.position.y, 0f), Quaternion.identity);
                         randomXSpot += prefabArray[randomIndex].GetComponentInChildren<SpriteRenderer>().bounds.size.x * multiplier;
                     }
                 }
                 else
                 {
                     // Iterates on the spawning
-                    float currYPos = spawnArea.position.y;
+                    float currYPos = gameObject.transform.position.y;
                     for (int iterator = 0; iterator <= randomSequentialAmount; iterator++)
                     {
                         Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, currYPos, 0f), Quaternion.identity);

@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: -1582446126514205909
     second: Level_Geometry_5
+  - first:
+      213: 3207903478435843441
+    second: Level_Geometry_0
+  - first:
+      213: -8011765923606343083
+    second: Level_Geometry_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,7 +130,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 50
-        width: 32
+        width: 31
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -143,9 +149,9 @@ TextureImporter:
       name: Level_Geometry_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 50
-        width: 32
+        width: 31
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -166,7 +172,7 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 50
-        width: 32
+        width: 31
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -187,7 +193,7 @@ TextureImporter:
         serializedVersion: 2
         x: 96
         y: 50
-        width: 32
+        width: 31
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -208,7 +214,7 @@ TextureImporter:
         serializedVersion: 2
         x: 128
         y: 50
-        width: 32
+        width: 31
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

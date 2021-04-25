@@ -14,11 +14,11 @@
         {
             if(GameManager.Instance != null)
             {
-                scoreText.text = "Score: " + GameManager.Instance.Score.ToString();
+                scoreText.text = GameManager.Instance.Score.ToString();
             }
             else
             {
-                scoreText.text = "Score: ";
+                scoreText.text = "0";
             }
         }
     }

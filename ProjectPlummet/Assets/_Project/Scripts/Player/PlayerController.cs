@@ -9,6 +9,9 @@
 
     public class PlayerController : MonoBehaviour
     {
+        public SpriteRenderer playerSprite;
+        public Animator playerAnimations;
+
         public float horizontalSpeed;
         public float horizontalAcceleration;
         public float stopAcceleration;

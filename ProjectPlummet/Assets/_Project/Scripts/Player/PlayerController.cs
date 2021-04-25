@@ -188,7 +188,7 @@
             fastFallGravity = Mathf.Clamp(fastFallGravity + 2f, initialFastFall, diffMaxFastFall);
             currGravity = Mathf.Clamp(currGravity + 2f, initialGravity, diffMaxGravity);
 
-            playerRB.gravityScale = currGravity;
+            playerRB.gravityScale = fastFallGravity;
             maxYAcceleration = fastFallGravity;
         }
 

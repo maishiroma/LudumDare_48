@@ -6,12 +6,14 @@
     using UnityEngine.InputSystem;
     using Global;
     using Player;
+    using TMPro;
 
     public class SpawnPlatform : MonoBehaviour
     {
         public GameObject blockGenerator;
         public PlayerController player;
         public SpriteRenderer platformVisual;
+        public TextMeshProUGUI startText;
 
         public float fadeSpeed;
 
@@ -51,6 +53,8 @@
 
             platformColor = platformVisual.material.color;
             alphaLerp = platformVisual.material.color.a;
+
+            startText.text = "Tap Spacebar to START!";
         }
 
         private void Update()
@@ -74,6 +78,7 @@
         {
             if(hasStarted == false)
             {
+                startText.text = "";
                 player.PlayIntroAnimation();
                 hasStarted = true;
             }

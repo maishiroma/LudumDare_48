@@ -9,6 +9,10 @@
 
     public class PlayerController : MonoBehaviour
     {
+        public AudioSource sfx;
+        public AudioClip blockBreak;
+        public AudioClip deadSound;
+
         public SpriteRenderer playerSprite;
         public Animator playerAnimations;
 
@@ -165,20 +169,19 @@
             {
                 if(isFastFalling)
                 {
+                    sfx.PlayOneShot(blockBreak, 1f);
                     GameManager.Instance.Score = collision.gameObject.GetComponent<PointSystem>().GetPointAmount;
                     Destroy(collision.gameObject);
                 }
                 else
                 {
-                    // game over
-                    print("You died!");
+                    sfx.PlayOneShot(deadSound, 1f);
                     GameManager.Instance.ToGameOver();
                 }
             }
            else if(collision.collider.CompareTag("Invincible"))
             {
-                // game over
-                print("You died!");
+                sfx.PlayOneShot(deadSound, 0.5f);
                 GameManager.Instance.ToGameOver();
             }
         }

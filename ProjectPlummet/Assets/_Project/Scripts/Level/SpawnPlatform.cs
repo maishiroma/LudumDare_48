@@ -14,6 +14,9 @@
         public PlayerController player;
         public SpriteRenderer platformVisual;
         public TextMeshProUGUI startText;
+        
+        public AudioSource bgm;
+        public AudioClip startSound;
 
         public float fadeSpeed;
 
@@ -66,6 +69,7 @@
 
                 if(alphaLerp <= 0.1f)
                 {
+                    bgm.Play();
                     blockGenerator.SetActive(true);
                     player.SetAlive = true;
                     gameObject.SetActive(false);
@@ -78,6 +82,7 @@
         {
             if(hasStarted == false)
             {
+                bgm.PlayOneShot(startSound, 1f);
                 startText.text = "";
                 player.PlayIntroAnimation();
                 hasStarted = true;

@@ -2073,14 +2073,6 @@ PrefabInstance:
       propertyPath: spawnPlatform
       value: 
       objectReference: {fileID: 1057535835}
-    - target: {fileID: 7318344047350373394, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
-      propertyPath: diffMaxGravity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318344047350373394, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
-      propertyPath: diffMaxFastFall
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7318344047350373395, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2128,10 +2120,6 @@ PrefabInstance:
     - target: {fileID: 7318344047350373396, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318344048263632754, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
@@ -2197,10 +2185,6 @@ PrefabInstance:
     - target: {fileID: 7650161268102350299, guid: 523d2f8925146ba49bd53fd4b5ebd37a, type: 3}
       propertyPath: m_Name
       value: SpawnPlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 7650161268912266898, guid: 523d2f8925146ba49bd53fd4b5ebd37a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 523d2f8925146ba49bd53fd4b5ebd37a, type: 3}

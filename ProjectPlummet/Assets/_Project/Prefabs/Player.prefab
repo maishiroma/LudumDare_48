@@ -100,6 +100,10 @@ MonoBehaviour:
   stopAcceleration: 5
   maxYAcceleration: 10
   fastFallGravity: 10
+  diffMaxGravity: 10
+  diffMaxFastFall: 20
+  drillHitBoxOffset: {x: 0.03, y: -0.51}
+  drillHitBoxSize: {x: 0.33, y: 0.14}
 --- !u!1 &7318344048263632753
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -4503883120480758062, guid: 4cc5be5a1320bcb4986822916851036a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

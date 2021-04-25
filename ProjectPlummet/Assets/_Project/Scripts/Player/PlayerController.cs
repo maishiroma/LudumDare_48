@@ -22,18 +22,22 @@
         public float diffMaxGravity;
         public float diffMaxFastFall;
 
+        public Vector2 drillHitBoxOffset;
+        public Vector2 drillHitBoxSize;
+
         private bool isAlive;
 
         private InputActions controls;
         private Rigidbody2D playerRB;
-       
+        private BoxCollider2D playerHitBox;
+
         private float movementInput;
         private bool isFastFalling;
-
-        private float currGravity;
-
         private float initialGravity;
         private float initialFastFall;
+        private float currGravity;
+        private Vector2 currHitBoxSize;
+        private Vector2 currHitBoxOffset;
 
         public bool SetAlive
         {
@@ -79,9 +83,12 @@
             isAlive = false;
 
             playerRB = GetComponent<Rigidbody2D>();
+            playerHitBox = GetComponent<BoxCollider2D>();
 
             initialGravity = playerRB.gravityScale;
             currGravity = initialGravity;
+            currHitBoxSize = playerHitBox.size;
+            currHitBoxOffset = playerHitBox.offset;
 
             if (GameManager.Instance != null)
             {
@@ -139,10 +146,14 @@
                 if (isFastFalling)
                 {
                     playerRB.gravityScale = fastFallGravity;
+                    playerHitBox.offset = drillHitBoxOffset;
+                    playerHitBox.size = drillHitBoxSize;
                 }
                 else
                 {
                     playerRB.gravityScale = currGravity;
+                    playerHitBox.offset = currHitBoxOffset;
+                    playerHitBox.size = currHitBoxSize;
                 }
 
             }

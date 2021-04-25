@@ -15,6 +15,7 @@
 
         public float xRange;
         public float maxSequential;
+        public Vector2 collideCheck;
 
         public float minSpawnRate;
         public float maxSpawnRate;
@@ -32,6 +33,7 @@
         private float startingMinSpawnRate;
         private float startingMaxSpawnRate;
         private int numbTimesDifficultyChanged;
+
 
         private void Start()
         {
@@ -67,7 +69,12 @@
                     // Iterates on the spawning
                     for (int iterator = 0; iterator <= randomSequentialAmount; iterator++)
                     {
-                        Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, gameObject.transform.position.y, 0f), Quaternion.identity);
+                        Vector3 spawnLoc = new Vector3(randomXSpot, gameObject.transform.position.y, 0f);
+                        Collider2D[] intersects = Physics2D.OverlapBoxAll(spawnLoc, collideCheck, 90f);
+                        if(intersects.Length == 0)
+                        {
+                            Instantiate(prefabArray[randomIndex], spawnLoc, Quaternion.identity);
+                        }
                         randomXSpot += prefabArray[randomIndex].GetComponentInChildren<SpriteRenderer>().bounds.size.x * multiplier;
                     }
                 }
@@ -77,7 +84,12 @@
                     float currYPos = gameObject.transform.position.y;
                     for (int iterator = 0; iterator <= randomSequentialAmount; iterator++)
                     {
-                        Instantiate(prefabArray[randomIndex], new Vector3(randomXSpot, currYPos, 0f), Quaternion.identity);
+                        Vector3 spawnLoc = new Vector3(randomXSpot, currYPos, 0f);
+                        Collider2D[] intersects = Physics2D.OverlapBoxAll(spawnLoc, collideCheck, 90f);
+                        if (intersects.Length == 0)
+                        {
+                            Instantiate(prefabArray[randomIndex], spawnLoc, Quaternion.identity);
+                        }
                         currYPos += prefabArray[randomIndex].GetComponentInChildren<SpriteRenderer>().bounds.size.y;
                     }
                 }

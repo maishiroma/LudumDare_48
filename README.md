@@ -23,11 +23,11 @@ The goal of **Sky Plummet** is to get the high score by drilling you way into go
 
 ## Screenshots
 
-![Gameplay_1](./Assets/Gameplay_1.png)
+![Gameplay_1](./Assets/Gameplay_1.PNG)
 
-![Gameplay_2](./Assets/Gameplay_2.png)
+![Gameplay_2](./Assets/Gameplay_2.PNG)
 
-![Gameplay_3](./Assets/Gameplay_3.png)
+![Gameplay_3](./Assets/Gameplay_3.PNG)
 
 ## Tools Used
 

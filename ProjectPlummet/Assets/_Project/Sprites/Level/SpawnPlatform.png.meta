@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 1f49fe71593597a48af4438277ad4875
+guid: f64b163458cd8844c937ce50104c9545
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8274363237862750152
-    second: Menu_UI_0
+      213: 651761846938070502
+    second: SpawnPlatform_0
   - first:
-      213: -3716901722540852846
-    second: Menu_UI_1
+      213: -4671258219941017141
+    second: SpawnPlatform_1
   - first:
-      213: -2777352646514433629
-    second: Menu_UI_2
+      213: -2359072398118936267
+    second: SpawnPlatform_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Menu_UI_0
+      name: SpawnPlatform_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 32
-        height: 31
+        y: 2
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,41 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 838c3a0897e8b2d80800000000000000
-      internalID: -8274363237862750152
+      spriteID: 6ed65e452f58b0900800000000000000
+      internalID: 651761846938070502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Menu_UI_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2993aea8399ea6cc0800000000000000
-      internalID: -3716901722540852846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Menu_UI_2
+      name: SpawnPlatform_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
-        width: 32
-        height: 31
+        y: 2
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +145,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a12488ab7cd479d0800000000000000
-      internalID: -2777352646514433629
+      spriteID: bc9ca4af56b5c2fb0800000000000000
+      internalID: -4671258219941017141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpawnPlatform_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53121be1724e24fd0800000000000000
+      internalID: -2359072398118936267
       vertices: []
       indices: 
       edges: []

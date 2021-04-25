@@ -12,12 +12,18 @@
         [SerializeField]
         private int gameOverIndex;
 
-        private int score;
+        private int currScore;
+        private int currHighScore;
 
         public int Score
         {
-            get { return score; }
-            set { score += value; }
+            get { return currScore; }
+            set { currScore += value; }
+        }
+
+        public int HighScore
+        {
+            get { return currHighScore; }
         }
 
         private void Awake()
@@ -33,13 +39,24 @@
             }
         }
 
+        private void Start()
+        {
+            currScore = 0;
+            currHighScore = 0;
+        }
+
         public void ResetScore()
         {
-            score = 0;
+            currScore = 0;
         }
 
         public void ToGameOver()
         {
+            if(currHighScore < currScore)
+            {
+                currHighScore = currScore;
+            }
+
             SceneManager.LoadScene(gameOverIndex);
         }
     }

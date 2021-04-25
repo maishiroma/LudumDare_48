@@ -8,17 +8,26 @@
 
     public class HUD : MonoBehaviour
     {
-        public TextMeshProUGUI scoreText;
+        public TextMeshProUGUI roundScore;
+        public TextMeshProUGUI highScore;
 
         private void Update()
         {
             if(GameManager.Instance != null)
             {
-                scoreText.text = GameManager.Instance.Score.ToString();
-            }
-            else
-            {
-                scoreText.text = "0";
+                roundScore.text = GameManager.Instance.Score.ToString();
+
+                if(highScore != null)
+                {
+                    if (GameManager.Instance.HighScore == GameManager.Instance.Score)
+                    {
+                        highScore.text = "New High Score!";
+                    }
+                    else
+                    {
+                        highScore.text = "High Score: " + GameManager.Instance.HighScore.ToString();
+                    }
+                }
             }
         }
     }

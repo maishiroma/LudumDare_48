@@ -106,6 +106,16 @@
             if(isAlive)
             {
                 movementInput = ctx.ReadValue<float>();
+                
+                switch (Mathf.Sign(movementInput))
+                {
+                    case 1:
+                        playerSprite.flipX = true;
+                        break;
+                    case -1:
+                        playerSprite.flipX = false;
+                        break;
+                }
             }
         }
     

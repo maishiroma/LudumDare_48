@@ -12,6 +12,8 @@
         public AudioSource sfx;
         public AudioClip blockBreak;
         public AudioClip deadSound;
+        public AudioClip plummetStart;
+        public AudioClip plummetEnd;
 
         public SpriteRenderer playerSprite;
         public Animator playerAnimations;
@@ -149,12 +151,14 @@
 
                 if (isFastFalling)
                 {
+                    sfx.PlayOneShot(plummetStart, 0.5f);
                     playerRB.gravityScale = fastFallGravity;
                     playerHitBox.offset = drillHitBoxOffset;
                     playerHitBox.size = drillHitBoxSize;
                 }
                 else
                 {
+                    sfx.PlayOneShot(plummetEnd, 0.5f);
                     playerRB.gravityScale = currGravity;
                     playerHitBox.offset = currHitBoxOffset;
                     playerHitBox.size = currHitBoxSize;

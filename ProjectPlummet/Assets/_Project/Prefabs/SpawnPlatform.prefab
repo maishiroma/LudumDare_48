@@ -74,6 +74,9 @@ MonoBehaviour:
   blockGenerator: {fileID: 0}
   player: {fileID: 0}
   platformVisual: {fileID: 7650161268912266898}
+  startText: {fileID: 0}
+  bgm: {fileID: 0}
+  startSound: {fileID: 8300000, guid: 599577d5e17bbec4cb8ba1204a22b043, type: 3}
   fadeSpeed: 10
 --- !u!1 &7650161268912266893
 GameObject:

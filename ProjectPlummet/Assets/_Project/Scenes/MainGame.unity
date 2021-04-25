@@ -2340,14 +2340,6 @@ PrefabInstance:
       propertyPath: sfx
       value: 
       objectReference: {fileID: 363241131}
-    - target: {fileID: 7318344047350373394, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
-      propertyPath: blockBreak
-      value: 
-      objectReference: {fileID: 8300000, guid: 9fb3f23a855c9a6448bef0196e19b2df, type: 3}
-    - target: {fileID: 7318344047350373394, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
-      propertyPath: deadSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 63fba78729e87d44c918c6e63fce247d, type: 3}
     - target: {fileID: 7318344047350373395, guid: cc748d93ecf024648804cb41b1f43fc5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2421,10 +2413,6 @@ PrefabInstance:
       propertyPath: bgm
       value: 
       objectReference: {fileID: 363241131}
-    - target: {fileID: 7650161268102350296, guid: 523d2f8925146ba49bd53fd4b5ebd37a, type: 3}
-      propertyPath: startSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 599577d5e17bbec4cb8ba1204a22b043, type: 3}
     - target: {fileID: 7650161268102350297, guid: 523d2f8925146ba49bd53fd4b5ebd37a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
